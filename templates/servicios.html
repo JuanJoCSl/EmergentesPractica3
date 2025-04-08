@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameTech64 - Servicios</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="game-container">
-        <header>
-            <div class="logo-container">
-                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="GameTech64 Logo" class="logo" width="50px">
-                <h1 class="site-title">GameTech64</h1>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="TechSolutions Logo">
+                <h1>TechSolutions</h1>
             </div>
-            <nav class="main-nav">
+            <nav>
                 <ul>
                     <li><a href="{{ url_for('index') }}">Inicio</a></li>
                     <li><a href="{{ url_for('quienes_somos') }}">Quiénes Somos</a></li>
@@ -42,7 +43,7 @@
             <section class="services-grid">
                 <div class="service-card red">
                     <div class="service-icon">
-                        <img src="img/service-dev.png" alt="Desarrollo">
+                        <img src=" {{ url_for('static' , filename = 'img/service-dev.png') }} " alt="Desarrollo">
                     </div>
                     <h2>Desarrollo de Software</h2>
                     <p>Creamos aplicaciones y sistemas con interfaces intuitivas y coloridas que hacen que la experiencia de usuario sea tan divertida como jugar a tu videojuego favorito.</p>
@@ -57,7 +58,7 @@
 
                 <div class="service-card blue">
                     <div class="service-icon">
-                        <img src="img/service-design.png" alt="Diseño">
+                        <img src="{{url_for('static', filename = 'img/service-design.png')}}" alt="Diseño">
                     </div>
                     <h2>Diseño Retro-Futurista</h2>
                     <p>Combinamos la estética de los 90 con tendencias modernas para crear diseños únicos que destacan y generan nostalgia en tus usuarios.</p>
@@ -72,7 +73,7 @@
 
                 <div class="service-card green">
                     <div class="service-icon">
-                        <img src="img/service-game.png" alt="Gamificación">
+                        <img src="{{url_for('static', filename ='img/service-game.png')}}" alt="Gamificación">
                     </div>
                     <h2>Gamificación</h2>
                     <p>Transformamos procesos empresariales aburridos en experiencias gamificadas que aumentan la motivación y el compromiso de usuarios y empleados.</p>
@@ -87,7 +88,7 @@
 
                 <div class="service-card yellow">
                     <div class="service-icon">
-                        <img src="img/service-training.png" alt="Formación">
+                        <img src="{{url_for('static',filename = 'img/service-training.png')}}" alt="Formación">
                     </div>
                     <h2>Formación Tecnológica</h2>
                     <p>Impartimos cursos y talleres sobre tecnología con metodologías basadas en videojuegos que hacen el aprendizaje más efectivo y divertido.</p>
@@ -105,7 +106,7 @@
                 <div class="cta-content">
                     <h2>¿Necesitas un servicio personalizado?</h2>
                     <p>Cuéntanos tu idea y crearemos una solución a medida</p>
-                    <a href="contacto.html" class="big-button purple pulse-animation">¡Hablemos!</a>
+                    <a href="{{ url_for('contacto') }}" class="big-button purple pulse-animation">¡Hablemos!</a>
                 </div>
             </section>
         </main>
@@ -113,17 +114,20 @@
         <footer>
             <div class="footer-content">
                 <div class="social-links">
-                    <a href="#" class="social-button">
-                        <img src="img/icon-twitter.png" alt="Twitter">
+                    <a href="https://www.tiktok.com/@juanjosecondorisan" target="_blank" class="social-button">
+                        <img src="{{ url_for('static', filename='img/icon-tik-tok.png') }}" alt="TikTok">
                     </a>
-                    <a href="#" class="social-button">
-                        <img src="img/icon-facebook.png" alt="Facebook">
+                    <a href="https://www.facebook.com/profile.php?id=100066623800580" target="_blank" class="social-button">
+                        <img src="{{ url_for('static', filename='img/icon-facebook.png') }}" alt="Facebook">
                     </a>
-                    <a href="#" class="social-button">
-                        <img src="img/icon-instagram.png" alt="Instagram">
+                    <a href="https://www.instagram.com/juanjocsxd/" target="_blank" class="social-button">
+                        <img src="{{ url_for('static', filename='img/icon-instagram.png') }}" alt="Instagram">
                     </a>
-                    <a href="#" class="social-button">
-                        <img src="img/icon-youtube.png" alt="YouTube">
+                    <a href="https://www.youtube.com/@juanjosecondorisalazar415" target="_blank" class="social-button">
+                        <img src="{{ url_for('static', filename='img/icon-youtube.png') }}" alt="YouTube">
+                    </a>
+                    <a href="https://wa.me/59165985126" target="_blank" class="social-button">
+                        <img src="{{ url_for('static', filename='img/icon-whatsapp.png') }}" alt="Whatsapp">
                     </a>
                 </div>
                 <p class="copyright">&copy; 2025 GameTech64. Todos los derechos reservados.</p>
@@ -131,7 +135,7 @@
         </footer>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src=" {{ url_for('static', filename = 'js/script.js') }} "></script>
 </body>
 </html>
 

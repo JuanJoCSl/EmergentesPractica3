@@ -1,11 +1,17 @@
-from flask import Flask, request, render_template, redirect
+from flask import Flask, request, render_template, redirect, url_for, flash
 
 app = Flask(__name__)
+
+app.secret_key = '123'
 @app.route("/")
 def index():
     return render_template("index.html")
-@app.route("/contacto")
+@app.route("/contacto", methods = ['GET', 'POST'])
 def contacto():
+    if request.method == 'POST':
+        nombre = request.form.get('nombre')
+        flash(f'¡Gracias {nombre}! Tu mensaje ha sido enviado.', 'success')
+        return redirect(url_for('contacto'))
     return render_template("contacto.html")
 @app.route("/noticias")
 def noticias():

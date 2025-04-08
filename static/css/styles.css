@@ -1104,4 +1104,17 @@ footer {
     display: none;
   }
 }
+.success-message {
+    background: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+    animation: fadeOut 3s 2s forwards;
+}
 
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}

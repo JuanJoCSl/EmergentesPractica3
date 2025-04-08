@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameTech64 - Noticias</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -47,7 +48,7 @@
             <section class="news-grid">
                 <div class="news-card" data-category="empresa">
                     <div class="news-image">
-                        <img src="img/news1.png" alt="Lanzamiento de servicio">
+                        <img src="{{ url_for('static', filename='img/news1.png') }}" alt="Lanzamiento de servicio">
                         <span class="news-category empresa">Empresa</span>
                     </div>
                     <div class="news-content">
@@ -60,7 +61,7 @@
 
                 <div class="news-card" data-category="eventos">
                     <div class="news-image">
-                        <img src="img/news2.png" alt="Workshop de diseño">
+                        <img src="{{ url_for('static', filename='img/news2.png') }}" alt="Workshop de diseño">
                         <span class="news-category eventos">Eventos</span>
                     </div>
                     <div class="news-content">
@@ -73,7 +74,7 @@
 
                 <div class="news-card" data-category="tecnologia">
                     <div class="news-image">
-                        <img src="img/news3.png" alt="Nueva tecnología">
+                        <img src="{{ url_for('static', filename='img/news3.png') }}" alt="Nueva tecnología">
                         <span class="news-category tecnologia">Tecnología</span>
                     </div>
                     <div class="news-content">
@@ -86,7 +87,7 @@
 
                 <div class="news-card" data-category="empresa">
                     <div class="news-image">
-                        <img src="img/news4.png" alt="Alianza estratégica">
+                        <img src="{{ url_for('static', filename='img/news4.png') }}" alt="Alianza estratégica">
                         <span class="news-category empresa">Empresa</span>
                     </div>
                     <div class="news-content">
@@ -99,7 +100,7 @@
 
                 <div class="news-card" data-category="tecnologia">
                     <div class="news-image">
-                        <img src="img/news5.png" alt="Tutorial de sonido">
+                        <img src="{{ url_for('static', filename='img/news5.png') }}" alt="Tutorial de sonido">
                         <span class="news-category tecnologia">Tecnología</span>
                     </div>
                     <div class="news-content">
@@ -112,7 +113,7 @@
 
                 <div class="news-card" data-category="eventos">
                     <div class="news-image">
-                        <img src="img/news6.png" alt="RetroDevCon 2025">
+                        <img src="{{ url_for('static', filename='img/news6.png') }}" alt="RetroDevCon 2025">
                         <span class="news-category eventos">Eventos</span>
                     </div>
                     <div class="news-content">
@@ -127,13 +128,13 @@
             <section class="pagination">
                 <div class="pagination-controls">
                     <a href="#" class="page-button disabled">
-                        <img src="img/arrow-left.png" alt="Anterior">
+                        <img src="{{ url_for('static', filename='img/atras.png') }}" alt="Anterior" width="60px">
                     </a>
                     <span class="page-number active">1</span>
                     <span class="page-number">2</span>
                     <span class="page-number">3</span>
                     <a href="#" class="page-button">
-                        <img src="img/arrow-right.png" alt="Siguiente">
+                        <img src="{{ url_for('static', filename='img/adelante.png') }}" alt="Siguiente" width="60px">
                     </a>
                 </div>
             </section>
@@ -153,17 +154,20 @@
         <footer>
             <div class="footer-content">
                 <div class="social-links">
-                    <a href="#" class="social-button">
-                        <img src="img/icon-twitter.png" alt="Twitter">
+                    <a href="https://www.tiktok.com/@juanjosecondorisan" target="_blank" class="social-button">
+                        <img src="{{ url_for('static', filename='img/icon-tik-tok.png') }}" alt="TikTok">
                     </a>
-                    <a href="#" class="social-button">
-                        <img src="img/icon-facebook.png" alt="Facebook">
+                    <a href="https://www.facebook.com/profile.php?id=100066623800580" target="_blank" class="social-button">
+                        <img src="{{ url_for('static', filename='img/icon-facebook.png') }}" alt="Facebook">
                     </a>
-                    <a href="#" class="social-button">
-                        <img src="img/icon-instagram.png" alt="Instagram">
+                    <a href="https://www.instagram.com/juanjocsxd/" target="_blank" class="social-button">
+                        <img src="{{ url_for('static', filename='img/icon-instagram.png') }}" alt="Instagram">
                     </a>
-                    <a href="#" class="social-button">
-                        <img src="img/icon-youtube.png" alt="YouTube">
+                    <a href="https://www.youtube.com/@juanjosecondorisalazar415" target="_blank" class="social-button">
+                        <img src="{{ url_for('static', filename='img/icon-youtube.png') }}" alt="YouTube">
+                    </a>
+                    <a href="https://wa.me/59165985126" target="_blank" class="social-button">
+                        <img src="{{ url_for('static', filename='img/icon-whatsapp.png') }}" alt="Whatsapp">
                     </a>
                 </div>
                 <p class="copyright">&copy; 2025 GameTech64. Todos los derechos reservados.</p>
@@ -171,7 +175,7 @@
         </footer>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src=" {{ url_for('static', filename='js/script.js') }}  "></script>
 </body>
 </html>
 

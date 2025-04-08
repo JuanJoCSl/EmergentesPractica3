@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameTech64 - Contacto</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -24,7 +25,16 @@
                 </ul>
             </nav>
         </header>
-
+        <!-- Agrega esto en la sección del formulario -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    {% for category, message in messages %}
+        <div class="success-message">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+{% endwith %}
         <main class="content-area">
             <section class="page-header">
                 <h1 class="page-title">Contacto</h1>
@@ -39,7 +49,7 @@
                 <div class="info-cards">
                     <div class="info-card red">
                         <div class="info-icon">
-                            <img src="img/icon-location.png" alt="Ubicación">
+                            <img src="{{ url_for('static', filename='img/icon-location.png') }}" alt="Ubicación" width="50px">
                         </div>
                         <h3>Dirección</h3>
                         <p>Calle Pixel 64</p>
@@ -47,7 +57,7 @@
                     </div>
                     <div class="info-card blue">
                         <div class="info-icon">
-                            <img src="img/icon-phone.png" alt="Teléfono">
+                            <img src="{{ url_for('static', filename='img/icon-phone.png') }}" alt="Teléfono" width="50px">
                         </div>
                         <h3>Teléfono</h3>
                         <p>+34 912 345 678</p>
@@ -55,7 +65,7 @@
                     </div>
                     <div class="info-card green">
                         <div class="info-icon">
-                            <img src="img/icon-email.png" alt="Email">
+                            <img src="{{ url_for('static', filename='img/icon-email.png') }}" alt="Email" width="50px">
                         </div>
                         <h3>Email</h3>
                         <p>info@gametech64.com</p>
@@ -69,7 +79,7 @@
                     <h2 class="section-title">¡Envíanos un mensaje!</h2>
                     <p class="form-intro">Completa el formulario y nos pondremos en contacto contigo lo antes posible</p>
                     
-                    <form action="#" method="POST" class="contact-form">
+                    <form action="#" method="POST" class="contact-form" id="contactForm">
                         <div class="form-group">
                             <label for="nombre">Nombre completo</label>
                             <input type="text" id="nombre" name="nombre" required class="form-input">
@@ -97,9 +107,12 @@
                 <div class="map-container">
                     <h2 class="section-title">Nuestra ubicación</h2>
                     <div class="game-map">
-                        <img src="img/pixel-map.png" alt="Mapa pixelado">
+                        <img src="{{ url_for('static', filename='img/pixel-map.png')}}" alt="Mapa pixelado" width="100%">
                         <div class="map-marker">
-                            <img src="img/map-marker.png" alt="Ubicación">
+                            <a href="https://maps.app.goo.gl/trQPpyaPhHHFU7rW7" target="_blank" id="mapa" rel="noopener noreferrer">
+                                <img src="{{ url_for('static', filename='img/map-marker.png') }}" alt="Ubicación" width="50PX">
+                                <b for="mapa">¿Comó llegar?</b>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -109,25 +122,27 @@
         <footer>
             <div class="footer-content">
                 <div class="social-links">
-                    <a href="#" class="social-button">
-                        <img src="img/icon-twitter.png" alt="Twitter">
+                    <a href="https://www.tiktok.com/@juanjosecondorisan" target="_blank" class="social-button">
+                        <img src="{{ url_for('static', filename='img/icon-tik-tok.png') }}" alt="TikTok">
                     </a>
-                    <a href="#" class="social-button">
-                        <img src="img/icon-facebook.png" alt="Facebook">
+                    <a href="https://www.facebook.com/profile.php?id=100066623800580" target="_blank" class="social-button">
+                        <img src="{{ url_for('static', filename='img/icon-facebook.png') }}" alt="Facebook">
                     </a>
-                    <a href="#" class="social-button">
-                        <img src="img/icon-instagram.png" alt="Instagram">
+                    <a href="https://www.instagram.com/juanjocsxd/" target="_blank" class="social-button">
+                        <img src="{{ url_for('static', filename='img/icon-instagram.png') }}" alt="Instagram">
                     </a>
-                    <a href="#" class="social-button">
-                        <img src="img/icon-youtube.png" alt="YouTube">
+                    <a href="https://www.youtube.com/@juanjosecondorisalazar415" target="_blank" class="social-button">
+                        <img src="{{ url_for('static', filename='img/icon-youtube.png') }}" alt="YouTube">
+                    </a>
+                    <a href="https://wa.me/59165985126" target="_blank" class="social-button">
+                        <img src="{{ url_for('static', filename='img/icon-whatsapp.png') }}" alt="Whatsapp">
                     </a>
                 </div>
                 <p class="copyright">&copy; 2025 GameTech64. Todos los derechos reservados.</p>
             </div>
         </footer>
     </div>
-
-    <script src="js/script.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
 
