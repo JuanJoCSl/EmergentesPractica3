@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameTech64 - Inicio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="TechSolutions Logo">
+                <h1>TechSolutions</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('quienes_somos') }}">Quiénes Somos</a></li>
+                    <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+                    <li><a href="{{ url_for('noticias') }}">Noticias</a></li>
+                    <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="content-area">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h2 class="hero-title">¡Bienvenido al mundo de GameTech64!</h2>
+                    <p class="hero-text">Soluciones tecnológicas con el espíritu de los videojuegos clásicos</p>
+                    <div class="cta-buttons">
+                        <a href="servicios.html" class="big-button red">Ver Servicios</a>
+                        <a href="contacto.html" class="big-button blue">Contáctanos</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="img/hero-console.png" alt="Consola retro">
+                </div>
+            </section>
+
+            <section class="features-section">
+                <h2 class="section-title">Nuestras Ventajas</h2>
+                <div class="feature-cards">
+                    <div class="feature-card red">
+                        <img src="img/icon-star.png" alt="Icono estrella" class="feature-icon">
+                        <h3>Experiencia Única</h3>
+                        <p>Combinamos tecnología moderna con la nostalgia de los 90s</p>
+                    </div>
+                    <div class="feature-card blue">
+                        <img src="img/icon-controller.png" alt="Icono mando" class="feature-icon">
+                        <h3>Control Total</h3>
+                        <p>Toma el mando de tu proyecto con nuestras soluciones personalizadas</p>
+                    </div>
+                    <div class="feature-card green">
+                        <img src="img/icon-rocket.png" alt="Icono cohete" class="feature-icon">
+                        <h3>Velocidad Turbo</h3>
+                        <p>Implementaciones rápidas y eficientes para tu negocio</p>
+                    </div>
+                    <div class="feature-card yellow">
+                        <img src="img/icon-shield.png" alt="Icono escudo" class="feature-icon">
+                        <h3>Protección Total</h3>
+                        <p>Seguridad de nivel jefe final para tus datos y sistemas</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="testimonials-section">
+                <h2 class="section-title">Lo que dicen nuestros jugadores</h2>
+                <div class="testimonial-cards">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            <p>"GameTech64 transformó nuestra empresa con soluciones que son tan divertidas de usar como efectivas."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="img/avatar1.png" alt="Cliente 1">
+                            <div>
+                                <h4>Mario González</h4>
+                                <p>Director de Pixelados S.A.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            <p>"Su enfoque retro combinado con tecnología de vanguardia nos dio exactamente lo que necesitábamos."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="img/avatar2.png" alt="Cliente 2">
+                            <div>
+                                <h4>Luisa Estrella</h4>
+                                <p>CEO de Mundo 8 Inc.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta-section">
+                <div class="cta-content">
+                    <h2>¿Listo para subir de nivel?</h2>
+                    <p>Contáctanos hoy y comienza tu aventura tecnológica</p>
+                    <a href="contacto.html" class="big-button green pulse-animation">¡Comenzar Ahora!</a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="#" class="social-button">
+                        <img src="img/icon-twitter.png" alt="Twitter">
+                    </a>
+                    <a href="#" class="social-button">
+                        <img src="img/icon-facebook.png" alt="Facebook">
+                    </a>
+                    <a href="#" class="social-button">
+                        <img src="img/icon-instagram.png" alt="Instagram">
+                    </a>
+                    <a href="#" class="social-button">
+                        <img src="img/icon-youtube.png" alt="YouTube">
+                    </a>
+                </div>
+                <p class="copyright">&copy; 2025 GameTech64. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameTech64 - Noticias</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="TechSolutions Logo">
+                <h1>TechSolutions</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('quienes_somos') }}">Quiénes Somos</a></li>
+                    <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+                    <li><a href="{{ url_for('noticias') }}">Noticias</a></li>
+                    <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="content-area">
+            <section class="page-header">
+                <h1 class="page-title">Noticias y Novedades</h1>
+                <div class="page-decoration">
+                    <div class="pixel-block"></div>
+                    <div class="pixel-block"></div>
+                    <div class="pixel-block"></div>
+                </div>
+            </section>
+
+            <section class="news-filters">
+                <div class="filter-buttons">
+                    <button class="filter-button active" data-filter="all">Todas</button>
+                    <button class="filter-button" data-filter="empresa">Empresa</button>
+                    <button class="filter-button" data-filter="tecnologia">Tecnología</button>
+                    <button class="filter-button" data-filter="eventos">Eventos</button>
+                </div>
+            </section>
+
+            <section class="news-grid">
+                <div class="news-card" data-category="empresa">
+                    <div class="news-image">
+                        <img src="img/news1.png" alt="Lanzamiento de servicio">
+                        <span class="news-category empresa">Empresa</span>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">15 de marzo, 2025</span>
+                        <h2>Lanzamos nuevo servicio de desarrollo de juegos retro</h2>
+                        <p>Ahora puedes crear tu propio juego con estética de los años 90 para plataformas modernas.</p>
+                        <a href="#" class="news-button">Leer más</a>
+                    </div>
+                </div>
+
+                <div class="news-card" data-category="eventos">
+                    <div class="news-image">
+                        <img src="img/news2.png" alt="Workshop de diseño">
+                        <span class="news-category eventos">Eventos</span>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">2 de marzo, 2025</span>
+                        <h2>Workshop: Diseño de interfaces inspiradas en consolas clásicas</h2>
+                        <p>Aprende a crear interfaces modernas con el encanto de las consolas de los 90.</p>
+                        <a href="#" class="news-button">Leer más</a>
+                    </div>
+                </div>
+
+                <div class="news-card" data-category="tecnologia">
+                    <div class="news-image">
+                        <img src="img/news3.png" alt="Nueva tecnología">
+                        <span class="news-category tecnologia">Tecnología</span>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">20 de febrero, 2025</span>
+                        <h2>Nueva tecnología de renderizado pixelado para aplicaciones web</h2>
+                        <p>Hemos desarrollado una librería que permite crear efectos pixelados auténticos en tiempo real.</p>
+                        <a href="#" class="news-button">Leer más</a>
+                    </div>
+                </div>
+
+                <div class="news-card" data-category="empresa">
+                    <div class="news-image">
+                        <img src="img/news4.png" alt="Alianza estratégica">
+                        <span class="news-category empresa">Empresa</span>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">5 de febrero, 2025</span>
+                        <h2>GameTech64 firma alianza con estudio de desarrollo indie</h2>
+                        <p>Colaboraremos con CreativeBits para crear experiencias nostálgicas para marcas modernas.</p>
+                        <a href="#" class="news-button">Leer más</a>
+                    </div>
+                </div>
+
+                <div class="news-card" data-category="tecnologia">
+                    <div class="news-image">
+                        <img src="img/news5.png" alt="Tutorial de sonido">
+                        <span class="news-category tecnologia">Tecnología</span>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">15 de enero, 2025</span>
+                        <h2>Tutorial: Cómo crear sonidos de 8-bit para tus aplicaciones</h2>
+                        <p>Aprende a generar efectos de sonido retro que darán personalidad a tus proyectos.</p>
+                        <a href="#" class="news-button">Leer más</a>
+                    </div>
+                </div>
+
+                <div class="news-card" data-category="eventos">
+                    <div class="news-image">
+                        <img src="img/news6.png" alt="RetroDevCon 2025">
+                        <span class="news-category eventos">Eventos</span>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">3 de enero, 2025</span>
+                        <h2>RetroDevCon 2025: Estaremos presentes con un stand especial</h2>
+                        <p>Visítanos en el mayor evento de desarrollo retro del año y prueba nuestras demos.</p>
+                        <a href="#" class="news-button">Leer más</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="pagination">
+                <div class="pagination-controls">
+                    <a href="#" class="page-button disabled">
+                        <img src="img/arrow-left.png" alt="Anterior">
+                    </a>
+                    <span class="page-number active">1</span>
+                    <span class="page-number">2</span>
+                    <span class="page-number">3</span>
+                    <a href="#" class="page-button">
+                        <img src="img/arrow-right.png" alt="Siguiente">
+                    </a>
+                </div>
+            </section>
+
+            <section class="newsletter">
+                <div class="newsletter-content">
+                    <h2>¡Suscríbete a nuestro boletín!</h2>
+                    <p>Recibe las últimas noticias y actualizaciones directamente en tu bandeja de entrada</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Tu correo electrónico" required>
+                        <button type="submit" class="newsletter-button">Suscribirse</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="#" class="social-button">
+                        <img src="img/icon-twitter.png" alt="Twitter">
+                    </a>
+                    <a href="#" class="social-button">
+                        <img src="img/icon-facebook.png" alt="Facebook">
+                    </a>
+                    <a href="#" class="social-button">
+                        <img src="img/icon-instagram.png" alt="Instagram">
+                    </a>
+                    <a href="#" class="social-button">
+                        <img src="img/icon-youtube.png" alt="YouTube">
+                    </a>
+                </div>
+                <p class="copyright">&copy; 2025 GameTech64. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+

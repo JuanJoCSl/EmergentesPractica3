@@ -1,0 +1,238 @@
+{% extends 'base.html' %}
+
+{% block title %}TechSolutions - {{ noticia.titulo }}{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>{{ noticia.titulo }}</h1>
+        <div class="news-meta">
+            <span class="news-date"><i class="far fa-calendar-alt"></i> {{ noticia.fecha }}</span>
+            <span class="news-category {{ noticia.categoria }}">{{ noticia.categoria_nombre }}</span>
+            <span class="news-author"><i class="far fa-user"></i> {{ noticia.autor }}</span>
+        </div>
+    </div>
+</section>
+
+<section class="news-detail">
+    <div class="container">
+        <div class="news-content-wrapper">
+            <div class="news-main-content">
+                <div class="news-featured-image">
+                    <img src="{{ url_for('static', filename=noticia.imagen) }}" alt="{{ noticia.titulo }}">
+                </div>
+                
+                <div class="news-content">
+                    {{ noticia.contenido | safe }}
+                </div>
+                
+                <div class="news-tags">
+                    <h3>Etiquetas:</h3>
+                    <div class="tags-list">
+                        {% for tag in noticia.tags %}
+                        <a href="{{ url_for('noticias_tag', tag=tag) }}" class="tag">{{ tag }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <div class="news-share">
+                    <h3>Compartir:</h3>
+                    <div class="social-share">
+                        <a href="#" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="share-btn twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="share-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="share-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="share-btn email"><i class="far fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="news-author-box">
+                    <div class="author-image">
+                        <img src="{{ url_for('static', filename=noticia.autor_imagen) }}" alt="{{ noticia.autor }}">
+                    </div>
+                    <div class="author-info">
+                        <h3>{{ noticia.autor }}</h3>
+                        <p class="author-position">{{ noticia.autor_cargo }}</p>
+                        <p class="author-bio">{{ noticia.autor_bio }}</p>
+                        <div class="author-social">
+                            {% for red in noticia.autor_redes %}
+                            <a href="{{ red.url }}"><i class="fab fa-{{ red.nombre }}"></i></a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="news-navigation">
+                    {% if noticia.anterior %}
+                    <a href="{{ url_for('noticia_detalle', id=noticia.anterior.id) }}" class="prev-news">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>
+                            <small>Anterior</small>
+                            <strong>{{ noticia.anterior.titulo }}</strong>
+                        </span>
+                    </a>
+                    {% endif %}
+                    
+                    {% if noticia.siguiente %}
+                    <a href="{{ url_for('noticia_detalle', id=noticia.siguiente.id) }}" class="next-news">
+                        <span>
+                            <small>Siguiente</small>
+                            <strong>{{ noticia.siguiente.titulo }}</strong>
+                        </span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    {% endif %}
+                </div>
+                
+                <div class="related-news">
+                    <h2>Noticias relacionadas</h2>
+                    <div class="related-news-grid">
+                        {% for noticia_rel in noticias_relacionadas %}
+                        <div class="news-card-small">
+                            <div class="news-card-image">
+                                <img src="{{ url_for('static', filename=noticia_rel.imagen) }}" alt="{{ noticia_rel.titulo }}">
+                                <span class="news-category {{ noticia_rel.categoria }}">{{ noticia_rel.categoria_nombre }}</span>
+                            </div>
+                            <div class="news-card-content">
+                                <span class="news-date">{{ noticia_rel.fecha }}</span>
+                                <h3>{{ noticia_rel.titulo }}</h3>
+                                <a href="{{ url_for('noticia_detalle', id=noticia_rel.id) }}" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <div class="news-comments">
+                    <h2>Comentarios ({{ noticia.comentarios|length }})</h2>
+                    
+                    <div class="comments-list">
+                        {% for comentario in noticia.comentarios %}
+                        <div class="comment">
+                            <div class="comment-avatar">
+                                <img src="{{ url_for('static', filename=comentario.avatar) }}" alt="{{ comentario.nombre }}">
+                            </div>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <h4>{{ comentario.nombre }}</h4>
+                                    <span class="comment-date">{{ comentario.fecha }}</span>
+                                </div>
+                                <div class="comment-text">
+                                    <p>{{ comentario.texto }}</p>
+                                </div>
+                                <div class="comment-actions">
+                                    <a href="#comment-form" class="reply-btn" data-reply="{{ comentario.id }}">Responder</a>
+                                </div>
+                                
+                                {% if comentario.respuestas %}
+                                <div class="comment-replies">
+                                    {% for respuesta in comentario.respuestas %}
+                                    <div class="comment">
+                                        <div class="comment-avatar">
+                                            <img src="{{ url_for('static', filename=respuesta.avatar) }}" alt="{{ respuesta.nombre }}">
+                                        </div>
+                                        <div class="comment-content">
+                                            <div class="comment-header">
+                                                <h4>{{ respuesta.nombre }}</h4>
+                                                <span class="comment-date">{{ respuesta.fecha }}</span>
+                                            </div>
+                                            <div class="comment-text">
+                                                <p>{{ respuesta.texto }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="comment-form" id="comment-form">
+                        <h3>Deja un comentario</h3>
+                        <form action="{{ url_for('enviar_comentario', id=noticia.id) }}" method="POST">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" id="nombre" name="nombre" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="comentario">Comentario</label>
+                                <textarea id="comentario" name="comentario" rows="5" required></textarea>
+                            </div>
+                            <input type="hidden" name="respuesta_a" id="respuesta_a" value="">
+                            <button type="submit" class="btn primary">Enviar comentario</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="news-sidebar">
+                <div class="sidebar-widget search-widget">
+                    <h3>Buscar</h3>
+                    <form action="{{ url_for('buscar_noticias') }}" method="GET" class="search-form">
+                        <input type="text" name="q" placeholder="Buscar noticias...">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+                
+                <div class="sidebar-widget categories-widget">
+                    <h3>Categorías</h3>
+                    <ul class="categories-list">
+                        {% for categoria in categorias %}
+                        <li>
+                            <a href="{{ url_for('noticias_categoria', categoria=categoria.slug) }}">
+                                {{ categoria.nombre }}
+                                <span class="count">{{ categoria.count }}</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                
+                <div class="sidebar-widget recent-posts-widget">
+                    <h3>Publicaciones recientes</h3>
+                    <ul class="recent-posts-list">
+                        {% for post in posts_recientes %}
+                        <li>
+                            <div class="post-image">
+                                <img src="{{ url_for('static', filename=post.imagen_mini) }}" alt="{{ post.titulo }}">
+                            </div>
+                            <div class="post-info">
+                                <h4><a href="{{ url_for('noticia_detalle', id=post.id) }}">{{ post.titulo }}</a></h4>
+                                <span class="post-date">{{ post.fecha }}</span>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                
+                <div class="sidebar-widget tags-widget">
+                    <h3>Etiquetas</h3>
+                    <div class="tags-cloud">
+                        {% for tag in tags_populares %}
+                        <a href="{{ url_for('noticias_tag', tag=tag.slug) }}" class="tag">{{ tag.nombre }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <div class="sidebar-widget newsletter-widget">
+                    <h3>Suscríbete</h3>
+                    <p>Recibe las últimas noticias y actualizaciones directamente en tu bandeja de entrada.</p>
+                    <form class="newsletter-form-sidebar">
+                        <input type="email" placeholder="Tu correo electrónico" required>
+                        <button type="submit" class="btn primary">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

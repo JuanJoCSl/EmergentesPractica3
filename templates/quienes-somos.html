@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameTech64 - Quiénes Somos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="TechSolutions Logo">
+                <h1>TechSolutions</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('quienes_somos') }}">Quiénes Somos</a></li>
+                    <li><a href="{{ url_for('servicios') }}">Servicios</a></li>
+                    <li><a href="{{ url_for('noticias') }}">Noticias</a></li>
+                    <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="content-area">
+            <section class="page-header">
+                <h1 class="page-title">Quiénes Somos</h1>
+                <div class="page-decoration">
+                    <div class="pixel-block"></div>
+                    <div class="pixel-block"></div>
+                    <div class="pixel-block"></div>
+                </div>
+            </section>
+
+            <section class="about-history">
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="img/about-history.png" alt="Nuestra Historia">
+                    </div>
+                    <div class="about-text">
+                        <h2 class="section-title">Nuestra Historia</h2>
+                        <p>GameTech64 nació en 2015 cuando un grupo de desarrolladores apasionados por los videojuegos clásicos decidió combinar su nostalgia por la era dorada de Nintendo 64 con soluciones tecnológicas modernas.</p>
+                        <p>Lo que comenzó como un pequeño estudio en un garaje, se ha convertido en una empresa innovadora que ofrece servicios tecnológicos con un toque único y nostálgico que nos diferencia en el mercado.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mission-vision">
+                <div class="mission-card">
+                    <div class="card-header red">
+                        <img src="img/icon-target.png" alt="Misión">
+                        <h2>Nuestra Misión</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>Proporcionar soluciones tecnológicas innovadoras que combinen la diversión y simplicidad de los videojuegos clásicos con la potencia de las tecnologías modernas.</p>
+                    </div>
+                </div>
+                
+                <div class="mission-card">
+                    <div class="card-header blue">
+                        <img src="img/icon-eye.png" alt="Visión">
+                        <h2>Nuestra Visión</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>Ser reconocidos como la empresa tecnológica más creativa y nostálgica del mercado, creando experiencias digitales que hagan sonreír a nuestros clientes mientras impulsan su éxito.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="team-section">
+                <h2 class="section-title">Nuestro Equipo</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <img src="img/team1.png" alt="Alex Gamer">
+                        </div>
+                        <h3>Alex Gamer</h3>
+                        <p class="member-role">Fundador & CEO</p>
+                        <p class="member-quote">"La tecnología debe ser tan divertida como un buen videojuego"</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <img src="img/team2.png" alt="Laura Pixel">
+                        </div>
+                        <h3>Laura Pixel</h3>
+                        <p class="member-role">Directora Creativa</p>
+                        <p class="member-quote">"El diseño retro nunca pasa de moda"</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <img src="img/team3.png" alt="Carlos Bit">
+                        </div>
+                        <h3>Carlos Bit</h3>
+                        <p class="member-role">Jefe de Desarrollo</p>
+                        <p class="member-quote">"Código limpio, experiencias inolvidables"</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <img src="img/team4.png" alt="Marta Joystick">
+                        </div>
+                        <h3>Marta Joystick</h3>
+                        <p class="member-role">Experta en UX</p>
+                        <p class="member-quote">"La mejor interfaz es la que no se nota"</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="#" class="social-button">
+                        <img src="img/icon-twitter.png" alt="Twitter">
+                    </a>
+                    <a href="#" class="social-button">
+                        <img src="img/icon-facebook.png" alt="Facebook">
+                    </a>
+                    <a href="#" class="social-button">
+                        <img src="img/icon-instagram.png" alt="Instagram">
+                    </a>
+                    <a href="#" class="social-button">
+                        <img src="img/icon-youtube.png" alt="YouTube">
+                    </a>
+                </div>
+                <p class="copyright">&copy; 2025 GameTech64. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
